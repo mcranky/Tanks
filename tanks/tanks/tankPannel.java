@@ -106,6 +106,7 @@ public class tankPannel extends JPanel {
 	 //Location p2s=new Location(bottomrightbellow,bottomrightbellow);
 	 int l = 432;
 	 int m=16;
+	 
 	 for(int i=0;i<p1.getscore();i++){
 	 g.drawImage(sheet.getTankGreenRight(),m+l , 448, null);
 	 g.drawImage(sheet.getTankRedRight(), m+l, 432, null);
