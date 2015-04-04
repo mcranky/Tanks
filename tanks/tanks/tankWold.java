@@ -31,20 +31,109 @@ public class tankWold extends World<blocks> {
 				add(loc, new grass(sheet.getGrass()));
 			}
 		}
+		Location loc = new Location(14, 14);
+		add(loc, new wall(sheet.GetWallMetal()));
+		loc = new Location(14, 15);
+		add(loc, new wall(sheet.GetWallMetal()));
+		loc = new Location(15, 15);
+		add(loc, new wall(sheet.GetWallMetal()));
+		loc = new Location(15, 14);
+		add(loc, new wall(sheet.GetWallMetal()));
+
 		for (int i = 0; i < g.getNumCols(); i++) {
-			Location loc = new Location(0, i);
+			loc = new Location(0, i);
 			add(loc, new wall(sheet.GetWallMetal()));
 			loc = new Location(g.getNumRows() - 1, g.getNumCols() - i - 1);
 			add(loc, new wall(sheet.GetWallMetal()));
 		}
 		for (int i = 0; i < g.getNumRows(); i++) {
-			Location loc = new Location(i, 0);
+			loc = new Location(i, 0);
 			add(loc, new wall(sheet.GetWallMetal()));
 			loc = new Location(g.getNumRows() - 1 - i, g.getNumCols() - 1);
 			add(loc, new wall(sheet.GetWallMetal()));
 		}
-		
-
+		for (int i = 0; i < 6; i++) {
+			loc = new Location(5, i + 12);
+			add(loc, new wall(sheet.GetWallMetal()));
+			loc = new Location(i + 12, 5);
+			add(loc, new wall(sheet.GetWallMetal()));
+			loc = new Location(24, i + 12);
+			add(loc, new wall(sheet.GetWallMetal()));
+			loc = new Location(i + 12, 24);
+			add(loc, new wall(sheet.GetWallMetal()));
+		}
+		for (int i = 0; i < 5; i++) {
+			loc = new Location(10, i + 8);
+			add(loc, new wall(sheet.GetWallMetal()));
+			loc = new Location(i + 8, 10);
+			add(loc, new wall(sheet.GetWallMetal()));
+			loc = new Location(10, i + 17);
+			add(loc, new wall(sheet.GetWallMetal()));
+			loc = new Location(i + 8, 19);
+			add(loc, new wall(sheet.GetWallMetal()));
+			loc = new Location(19, i + 8);
+			add(loc, new wall(sheet.GetWallMetal()));
+			loc = new Location(i + 17, 10);
+			add(loc, new wall(sheet.GetWallMetal()));
+			loc = new Location(19, i + 17);
+			add(loc, new wall(sheet.GetWallMetal()));
+			loc = new Location(i + 17, 19);
+			add(loc, new wall(sheet.GetWallMetal()));
+		}
+		for (int i = 0; i < 5; i++) {
+			loc = new Location(10, i + 8);
+			add(loc, new wall(sheet.GetWallMetal()));
+			loc = new Location(i + 8, 10);
+			add(loc, new wall(sheet.GetWallMetal()));
+			loc = new Location(10, i + 17);
+			add(loc, new wall(sheet.GetWallMetal()));
+			loc = new Location(i + 8, 19);
+			add(loc, new wall(sheet.GetWallMetal()));
+			loc = new Location(19, i + 8);
+			add(loc, new wall(sheet.GetWallMetal()));
+			loc = new Location(i + 17, 10);
+			add(loc, new wall(sheet.GetWallMetal()));
+			loc = new Location(19, i + 17);
+			add(loc, new wall(sheet.GetWallMetal()));
+			loc = new Location(i + 17, 19);
+			add(loc, new wall(sheet.GetWallMetal()));
+		}
+		for (int i = 0; i < 3; i++) {
+			loc = new Location(3, i + 3);
+			add(loc, new wall(sheet.GetWallMetal()));
+			loc = new Location(i + 3, 3);
+			add(loc, new wall(sheet.GetWallMetal()));
+			loc = new Location(3, i + 24);
+			add(loc, new wall(sheet.GetWallMetal()));
+			loc = new Location(i + 3, 26);
+			add(loc, new wall(sheet.GetWallMetal()));
+			loc = new Location(26, i + 3);
+			add(loc, new wall(sheet.GetWallMetal()));
+			loc = new Location(i + 24, 3);
+			add(loc, new wall(sheet.GetWallMetal()));
+			loc = new Location(26, i + 24);
+			add(loc, new wall(sheet.GetWallMetal()));
+			loc = new Location(i + 24, 26);
+			add(loc, new wall(sheet.GetWallMetal()));
+		}
+		for (int i = 0; i < 2; i++) {
+			loc = new Location(7, i + 6);
+			add(loc, new wall(sheet.GetWallMetal()));
+			loc = new Location(i + 6, 7);
+			add(loc, new wall(sheet.GetWallMetal()));
+			loc = new Location(7, i + 22);
+			add(loc, new wall(sheet.GetWallMetal()));
+			loc = new Location(i + 6, 22);
+			add(loc, new wall(sheet.GetWallMetal()));
+			loc = new Location(22, i + 6);
+			add(loc, new wall(sheet.GetWallMetal()));
+			loc = new Location(i + 22, 7);
+			add(loc, new wall(sheet.GetWallMetal()));
+			loc = new Location(22, i + 22);
+			add(loc, new wall(sheet.GetWallMetal()));
+			loc = new Location(i + 22, 22);
+			add(loc, new wall(sheet.GetWallMetal()));
+		}
 	}
 
 	private void swap(Location one, Location loc) {

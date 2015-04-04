@@ -49,7 +49,6 @@ public class tankPannel extends JPanel {
 			public void keyReleased(KeyEvent arg0) {
 				System.out.println(arg0.getKeyChar() + "");
 				movetank(arg0.getKeyChar());
-			
 				repaint();
 			};
 		});
@@ -59,6 +58,9 @@ public class tankPannel extends JPanel {
 		if (c == 'w') {
 			p1.move(0);
 		}
+		if (c == 'e') {
+			p1.shoot(p1);
+		}
 		if (c == 'a') {
 			p1.move(3);
 		}
@@ -67,6 +69,9 @@ public class tankPannel extends JPanel {
 		}
 		if (c == 'd') {
 			p1.move(1);
+		}
+		if (c == 'p') {
+			p2.shoot(p1);
 		}
 		if (c == 'o') {
 			p2.move(0);
@@ -98,21 +103,22 @@ public class tankPannel extends JPanel {
 			for (int j = 0; j < grid.getNumCols(); j++) {
 				grid.get(new Location(i, j)).draw(g, j * boxHeightWidth, i * boxHeightWidth, boxHeightWidth);
 			}
-			
 		}
 	}
- private void drawscore(Graphics g){
-	// Location p1s=new Location(bottomright, bottomright);
-	 //Location p2s=new Location(bottomrightbellow,bottomrightbellow);
-	 int l = 432;
-	 int m=16;
-	 for(int i=0;i<p1.getscore();i++){
-	 g.drawImage(sheet.getTankGreenRight(),m+l , 448, null);
-	 g.drawImage(sheet.getTankRedRight(), m+l, 432, null);
-	 m=m-16;
+
+	private void drawscore(Graphics g) {
+		// Location p1s=new Location(bottomright, bottomright);
+		//Location p2s=new Location(bottomrightbellow,bottomrightbellow);
+		int l = 432;
+		int m = 16;
+		for (int i = 0; i < p1.getscore(); i++) {
+			g.drawImage(sheet.getTankGreenRight(), m + l, 448, null);
+			g.drawImage(sheet.getTankRedRight(), m + l, 432, null);
+			m = m - 16;
+		}
+
 	}
-	
- }
+
 	private void drawExtraStuff(Graphics g) {
 		p1.draw(g, boxHeightWidth);
 		p2.draw(g, boxHeightWidth);
