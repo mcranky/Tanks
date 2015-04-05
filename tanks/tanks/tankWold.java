@@ -1,7 +1,5 @@
 package tanks;
 
-import java.util.ArrayList;
-
 import info.gridworld.grid.BoundedGrid;
 import info.gridworld.grid.Grid;
 import info.gridworld.grid.Location;
