@@ -105,6 +105,18 @@ public class tankPannel extends JPanel {
 			}
 		}
 	}
+<<<<<<< HEAD
+ private void drawscore(Graphics g){
+	// Location p1s=new Location(bottomright, bottomright);
+	 //Location p2s=new Location(bottomrightbellow,bottomrightbellow);
+	 int l = 432;
+	 int m=16;
+	 
+	 for(int i=0;i<p1.getscore();i++){
+	 g.drawImage(sheet.getTankGreenRight(),m+l , 448, null);
+	 g.drawImage(sheet.getTankRedRight(), m+l, 432, null);
+	 m=m-16;
+=======
 
 	private void drawscore(Graphics g) {
 		// Location p1s=new Location(bottomright, bottomright);
@@ -117,6 +129,7 @@ public class tankPannel extends JPanel {
 			m = m - 16;
 		}
 
+>>>>>>> origin/master
 	}
 
 	private void drawExtraStuff(Graphics g) {
