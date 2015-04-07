@@ -9,7 +9,7 @@ import java.awt.Image;
 import java.awt.image.BufferedImage;
 
 public class tank {
-	private int score = 3;
+	private int score = 48;
 	private Image tankup = null;
 	private Image tankrihgt = null;
 	private Image tankdown = null;
