@@ -9,7 +9,7 @@ import java.awt.Image;
 import java.awt.image.BufferedImage;
 
 public class tank {
-	private int score=3;
+	private int score = 3;
 	private Image tankup = null;
 	private Image tankrihgt = null;
 	private Image tankdown = null;
@@ -18,6 +18,7 @@ public class tank {
 	private int directoin = 0;
 	private int speed = 4;
 	private Grid<blocks> grid = null;
+	private Graphics g;
 
 	public tank(Location loc, Image image, Image image2, Image image3, Image image4, Grid<blocks> g) {
 		// TODO Auto-generated constructor stub
@@ -40,13 +41,13 @@ public class tank {
 			location = new Location(getLocation().getRow() - speed, getLocation().getCol());
 			break;
 		case 1:
-			if (grid.get(new Location(location.getRow() / 16, (location.getCol() + speed) / 16)).isSolid()) {
+			if (grid.get(new Location(location.getRow() / 16, (location.getCol() + 16) / 16)).isSolid()) {
 				return;
 			}
 			location = new Location(getLocation().getRow(), getLocation().getCol() + speed);
 			break;
 		case 2:
-			if (grid.get(new Location((location.getRow() + speed) / 16, location.getCol() / 16)).isSolid()) {
+			if (grid.get(new Location((location.getRow() + 16) / 16, location.getCol() / 16)).isSolid()) {
 				return;
 			}
 			location = new Location(getLocation().getRow() + speed, getLocation().getCol());
@@ -63,13 +64,12 @@ public class tank {
 
 	}
 
-	public void shoot() {
-		// TODO Auto-generated method stub
-
+	public void shoot(tank p1) {
+		Bullet bulet = new Bullet(directoin, location, grid, g);
 	}
 
 	public void draw(Graphics g, int heightwidth) {
-		// TODO Auto-generated method stub
+		if (this.g == null) this.g = g;
 		BufferedImage temp = ((BufferedImage) getimage());
 		for (int i = 0; i < temp.getWidth(); i++) {
 			for (int j = 0; j < temp.getHeight(); j++) {
@@ -80,19 +80,19 @@ public class tank {
 				}
 			}
 		}
-//		g.drawImage(tank, location.getCol(), location.getRow(), heightwidth, heightwidth, null);
 	}
-	public int getscore(){
+
+	public int getscore() {
 		return score;
-		
+
 	}
-	public void reducescore(){
-		if(score>0){
+
+	public void reducescore() {
+		if (score > 0) {
 			score--;
-			
+
 		}
-		
-		
+
 	}
 
 	public Location getLocation() {
