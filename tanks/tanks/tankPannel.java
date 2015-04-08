@@ -103,19 +103,7 @@ public class tankPannel extends JPanel {
 
 		super.paintComponent(g);
 		Grid<blocks> grid = this.tankWorld.getGrid();
-		if(p1.getscore()<1||p2.getscore()<1){
-			Color c= new Color(0,0,0);
-			Color w =new Color (250,250,250);
-			g.setColor(c);
-			g.fillRect(0, 0, 480, 480);
-			g.setColor(w);
-			 JLabel jlabel = new JLabel("GameOver");
-			    jlabel.setFont(new Font("Verdana",1,20));
-			    jlabel.setForeground(w);
-			    this.add(jlabel);
-			    this.setBorder(new LineBorder(Color.WHITE)); // make it easy to see
-			    
-		}
+		
 		draw(grid, g);
 		drawscore(g);
 		drawExtraStuff(g);
@@ -135,11 +123,26 @@ public class tankPannel extends JPanel {
 	 //Location p2s=new Location(bottomrightbellow,bottomrightbellow);
 	 int l = 432;
 	 int m=16;
-	 
+	 if((p1.getscore()/16)<1||(p2.getscore()/16)<1){
+			Color c= new Color(0,0,0);
+			Color w =new Color (250,250,250);
+			g.setColor(c);
+			g.fillRect(0, 0, 480, 480);
+			g.setColor(w);
+			 JLabel jlabel = new JLabel("GameOver",JLabel.CENTER);
+			    jlabel.setFont(new Font("Verdana",0,20));
+			    
+			    jlabel.setForeground(w);
+			    this.add(jlabel);
+			    this.setBorder(new LineBorder(Color.WHITE)); // make it easy to see
+			    
+		}
+	 else{
 	 for(int i=0;i<(p1.getscore()/16);i++){
 	 g.drawImage(sheet.getTankGreenRight(),m+l , 448, null);
 	 g.drawImage(sheet.getTankRedRight(), m+l, 432, null);
 	 m=m-16;
+	 }
 	 }
  }
 
