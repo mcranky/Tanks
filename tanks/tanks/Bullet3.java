@@ -33,7 +33,7 @@ public class Bullet3 {
 
 	private void shoot() {
 		if (dir == 0) {
-			x.getAdjacentLocation(x.NORTH);
+			x.getAdjacentLocation(Location.NORTH);
 			while (shooting) {
 				if (grid.get(new Location((x.getRow() / 16) - 1, (x.getCol() / 16))).isSolid() == true) {
 					explode();
@@ -46,7 +46,7 @@ public class Bullet3 {
 		}
 
 		if (dir == 1) {
-			x.getAdjacentLocation(x.EAST);
+			x.getAdjacentLocation(Location.EAST);
 
 			while (shooting) {
 				if (grid.get(new Location((x.getRow() / 16), (x.getCol() / 16) + 1)).isSolid() == true) {
@@ -60,7 +60,7 @@ public class Bullet3 {
 		}
 
 		if (dir == 2) {
-			x.getAdjacentLocation(x.SOUTH);
+			x.getAdjacentLocation(Location.SOUTH);
 			while (shooting) {
 				if (grid.get(new Location((x.getRow() / 16) + 1, (x.getCol() / 16))).isSolid() == true) {
 					explode();
@@ -73,7 +73,7 @@ public class Bullet3 {
 		}
 
 		if (dir == 3) {
-			x.getAdjacentLocation(x.WEST);
+			x.getAdjacentLocation(Location.WEST);
 			while (shooting) {
 				if (grid.get(new Location((x.getRow() / 16), (x.getCol() / 16) - 1)).isSolid() == true) {
 					explode();
