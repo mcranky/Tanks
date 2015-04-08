@@ -65,7 +65,7 @@ public class tank {
 	}
 
 	public void shoot(tank p1) {
-		Bullet bulet = new Bullet(directoin, location, grid, g);
+		Bullet3 bulet = new Bullet3(directoin, location, grid, g, p1);
 	}
 
 	public void draw(Graphics g, int heightwidth) {

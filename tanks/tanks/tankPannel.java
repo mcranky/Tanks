@@ -17,7 +17,10 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 import javax.imageio.ImageIO;
+import javax.print.DocFlavor.CHAR_ARRAY;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.border.LineBorder;
 
 public class tankPannel extends JPanel {
 	/**
@@ -38,6 +41,14 @@ public class tankPannel extends JPanel {
 	private tank p1;
 	private tank p2;
 
+   // private boolean p1up=false;
+    //private boolean p1right=false;
+  //  private boolean p1down=false;
+    //private boolean p1left=false;
+   // private boolean p2up=false;
+   // private boolean p2right=false;
+    //private boolean p2down=false;
+   // private boolean p2left=false;
 	public tankPannel(tankWold tankWorld) {
 		this.tankWorld = tankWorld;
 		p1 = new tank(new Location(boxHeightWidth * tankWorld.getGrid().getNumCols() - (boxHeightWidth * 3), boxHeightWidth), sheet.getTankGreenUp(), sheet.getTankGreenRight(), sheet.getTankGreenDown(), sheet.getTankGreenLeft(), tankWorld.getGrid());
@@ -92,9 +103,22 @@ public class tankPannel extends JPanel {
 
 		super.paintComponent(g);
 		Grid<blocks> grid = this.tankWorld.getGrid();
+		if(p1.getscore()<1||p2.getscore()<1){
+			Color c= new Color(0,0,0);
+			Color w =new Color (250,250,250);
+			g.setColor(c);
+			g.fillRect(0, 0, 480, 480);
+			g.setColor(w);
+			 JLabel jlabel = new JLabel("GameOver");
+			    jlabel.setFont(new Font("Verdana",1,20));
+			    jlabel.setForeground(w);
+			    this.add(jlabel);
+			    this.setBorder(new LineBorder(Color.WHITE)); // make it easy to see
+			    
+		}
 		draw(grid, g);
-		drawExtraStuff(g);
 		drawscore(g);
+		drawExtraStuff(g);
 		this.requestFocusInWindow();
 	}
 

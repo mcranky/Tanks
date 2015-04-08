@@ -9,7 +9,7 @@ public class tankFrame extends JFrame {
 	private static final long serialVersionUID = 1L;
 
 	public tankFrame(tankWold tankWorld) {
-		super("Jwl Crusher 1.0");
+		super("Tank on Tank...Hardcore");
 		makeToolbar();// so you can make a toolbar, like "real" apps
 
 		// the JwlPanel is where the Jwls and other stuff will
