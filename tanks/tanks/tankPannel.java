@@ -41,14 +41,14 @@ public class tankPannel extends JPanel {
 	private tank p1;
 	private tank p2;
 
-   // private boolean p1up=false;
-    //private boolean p1right=false;
-  //  private boolean p1down=false;
-    //private boolean p1left=false;
-   // private boolean p2up=false;
-   // private boolean p2right=false;
-    //private boolean p2down=false;
-   // private boolean p2left=false;
+	// private boolean p1up=false;
+	//private boolean p1right=false;
+	//  private boolean p1down=false;
+	//private boolean p1left=false;
+	// private boolean p2up=false;
+	// private boolean p2right=false;
+	//private boolean p2down=false;
+	// private boolean p2left=false;
 	public tankPannel(tankWold tankWorld) {
 		this.tankWorld = tankWorld;
 		p1 = new tank(new Location(boxHeightWidth * tankWorld.getGrid().getNumCols() - (boxHeightWidth * 3), boxHeightWidth), sheet.getTankGreenUp(), sheet.getTankGreenRight(), sheet.getTankGreenDown(), sheet.getTankGreenLeft(), tankWorld.getGrid());
@@ -103,7 +103,7 @@ public class tankPannel extends JPanel {
 
 		super.paintComponent(g);
 		Grid<blocks> grid = this.tankWorld.getGrid();
-		
+
 		draw(grid, g);
 		drawscore(g);
 		drawExtraStuff(g);
@@ -117,6 +117,7 @@ public class tankPannel extends JPanel {
 			}
 		}
 	}
+<<<<<<< HEAD
 
  private void drawscore(Graphics g){
 	// Location p1s=new Location(bottomright, bottomright);
@@ -128,17 +129,39 @@ public class tankPannel extends JPanel {
 	 if((p1.getscore()/16)<1||(p2.getscore()/16)<1){
 			Color c= new Color(0,0,0);
 			Color w =new Color (250,250,250);
+=======
+
+	private void drawscore(Graphics g) {
+		// Location p1s=new Location(bottomright, bottomright);
+		//Location p2s=new Location(bottomrightbellow,bottomrightbellow);
+		int l = 432;
+		int m = 16;
+		if ((p1.getscore()) <= 0 || (p2.getscore()) <= 0) {
+			Color c = new Color(0, 0, 0);
+			Color w = new Color(250, 250, 250);
+>>>>>>> origin/master
 			g.setColor(c);
 			g.fillRect(0, 0, 480, 480);
 			g.setColor(w);
-			 JLabel jlabel = new JLabel("GameOver",JLabel.CENTER);
-			    jlabel.setFont(new Font("Verdana",0,20));
-			    
-			    jlabel.setForeground(w);
-			    this.add(jlabel);
-			    this.setBorder(new LineBorder(Color.WHITE)); // make it easy to see
-			    
+			JLabel jlabel = new JLabel("GameOver", JLabel.CENTER);
+			jlabel.setFont(new Font("Verdana", 0, 20));
+
+			jlabel.setForeground(w);
+			this.add(jlabel);
+			this.setBorder(new LineBorder(Color.WHITE)); // make it easy to see
+
+		} else {
+			for (int i = 0; i < (p1.getscore()); i++) {
+				g.drawImage(sheet.getTankGreenRight(), m + l, 448, null);
+				m = m - 16;
+			}
+			m = 16;
+			for (int i = 0; i < (p2.getscore()); i++) {
+				g.drawImage(sheet.getTankRedRight(), m + l, 432, null);
+				m = m - 16;
+			}
 		}
+<<<<<<< HEAD
 	 else{
 	 for(int i=0;i<(p1.getscore()/16);i++){
 	 g.drawImage(sheet.getTankGreenRight(),m+l , 448, null);
@@ -153,18 +176,20 @@ public class tankPannel extends JPanel {
 	 
 	 }
  }
+=======
+	}
+>>>>>>> origin/master
 
 //	private void drawscore(Graphics g) {
-		// Location p1s=new Location(bottomright, bottomright);
-		//Location p2s=new Location(bottomrightbellow,bottomrightbellow);
+	// Location p1s=new Location(bottomright, bottomright);
+	//Location p2s=new Location(bottomrightbellow,bottomrightbellow);
 	//	int l = 432;
 	//	int m = 16;
-     //   for (int i = 0; i < p1.getscore(); i++) {
-		//	g.drawImage(sheet.getTankGreenRight(), m + l, 448, null);
-			//g.drawImage(sheet.getTankRedRight(), m + l, 432, null);
-		//	m = m - 16;
-		//}
-
+	//   for (int i = 0; i < p1.getscore(); i++) {
+	//	g.drawImage(sheet.getTankGreenRight(), m + l, 448, null);
+	//g.drawImage(sheet.getTankRedRight(), m + l, 432, null);
+	//	m = m - 16;
+	//}
 
 	//}
 
