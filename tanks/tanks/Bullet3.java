@@ -20,7 +20,7 @@ public class Bullet3 {
 	private static Image Bullet;
 	private Graphics g;
 	private Spritesheet sheet = new Spritesheet();
-	private static tank enemy1;
+	private  tank enemy1;
 	
 	public Bullet3(int dir, Location y,Grid<blocks> gr,Graphics g,tank p1) {
 		this.dir=dir;

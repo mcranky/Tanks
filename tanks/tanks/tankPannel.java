@@ -70,7 +70,7 @@ public class tankPannel extends JPanel {
 			p1.move(0);
 		}
 		if (c == 'e') {
-			p1.shoot(p1);
+			p1.shoot(p2);
 		}
 		if (c == 'a') {
 			p1.move(3);
@@ -123,6 +123,8 @@ public class tankPannel extends JPanel {
 	 //Location p2s=new Location(bottomrightbellow,bottomrightbellow);
 	 int l = 432;
 	 int m=16;
+	 int q=16;
+	 
 	 if((p1.getscore()/16)<1||(p2.getscore()/16)<1){
 			Color c= new Color(0,0,0);
 			Color w =new Color (250,250,250);
@@ -140,9 +142,15 @@ public class tankPannel extends JPanel {
 	 else{
 	 for(int i=0;i<(p1.getscore()/16);i++){
 	 g.drawImage(sheet.getTankGreenRight(),m+l , 448, null);
-	 g.drawImage(sheet.getTankRedRight(), m+l, 432, null);
+	
 	 m=m-16;
 	 }
+	 for(int i=0;i<(p2.getscore()/16);i++){
+		
+		 g.drawImage(sheet.getTankRedRight(), q+l, 432, null);
+		 q=q-16;
+		 }
+	 
 	 }
  }
 
