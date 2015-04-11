@@ -40,32 +40,29 @@ public class tankPannel extends JPanel {
 	private Spritesheet sheet = new Spritesheet();
 	private tank p1;
 	private tank p2;
+	private keystuff key = new keystuff(this);
 
-	// private boolean p1up=false;
-	//private boolean p1right=false;
-	//  private boolean p1down=false;
-	//private boolean p1left=false;
-	// private boolean p2up=false;
-	// private boolean p2right=false;
-	//private boolean p2down=false;
-	// private boolean p2left=false;
 	public tankPannel(tankWold tankWorld) {
 		this.tankWorld = tankWorld;
 		p1 = new tank(new Location(boxHeightWidth * tankWorld.getGrid().getNumCols() - (boxHeightWidth * 3), boxHeightWidth), sheet.getTankGreenUp(), sheet.getTankGreenRight(), sheet.getTankGreenDown(), sheet.getTankGreenLeft(), tankWorld.getGrid());
 		p2 = new tank(new Location(boxHeightWidth, boxHeightWidth * tankWorld.getGrid().getNumCols() - (boxHeightWidth * 3)), sheet.getTankRedUp(), sheet.getTankRedRight(), sheet.getTankRedDown(), sheet.getTankRedLeft(), tankWorld.getGrid());
 		this.setPreferredSize(new Dimension(boxHeightWidth * tankWorld.getGrid().getNumCols() - boxHeightWidth, boxHeightWidth * tankWorld.getGrid().getNumRows() - boxHeightWidth));
 		repaint();
+		key.start();
 		this.addKeyListener(new KeyAdapter() {
 			@Override
+			public void keyPressed(KeyEvent e) {
+				key.add((e.getKeyChar()));
+			}
+
+			@Override
 			public void keyReleased(KeyEvent arg0) {
-				System.out.println(arg0.getKeyChar() + "");
-				movetank(arg0.getKeyChar());
-				repaint();
+				key.remove((arg0.getKeyChar()));
 			};
 		});
 	}
 
-	private void movetank(char c) {
+	public void movetank(char c) {
 		if (c == 'w') {
 			p1.move(0);
 		}
@@ -96,6 +93,7 @@ public class tankPannel extends JPanel {
 		if (c == ';') {
 			p2.move(1);
 		}
+		repaint();
 	}
 
 	@Override
@@ -117,19 +115,6 @@ public class tankPannel extends JPanel {
 			}
 		}
 	}
-<<<<<<< HEAD
-
- private void drawscore(Graphics g){
-	// Location p1s=new Location(bottomright, bottomright);
-	 //Location p2s=new Location(bottomrightbellow,bottomrightbellow);
-	 int l = 432;
-	 int m=16;
-	 int q=16;
-	 
-	 if((p1.getscore()/16)<1||(p2.getscore()/16)<1){
-			Color c= new Color(0,0,0);
-			Color w =new Color (250,250,250);
-=======
 
 	private void drawscore(Graphics g) {
 		// Location p1s=new Location(bottomright, bottomright);
@@ -139,11 +124,12 @@ public class tankPannel extends JPanel {
 		if ((p1.getscore()) <= 0 || (p2.getscore()) <= 0) {
 			Color c = new Color(0, 0, 0);
 			Color w = new Color(250, 250, 250);
->>>>>>> origin/master
+			String winner = "Player 1 Won!";
 			g.setColor(c);
 			g.fillRect(0, 0, 480, 480);
 			g.setColor(w);
-			JLabel jlabel = new JLabel("GameOver", JLabel.CENTER);
+			if (p1.getscore() <= 0) winner = "Player 2 Won!";
+			JLabel jlabel = new JLabel("GameOver " + winner, JLabel.CENTER);
 			jlabel.setFont(new Font("Verdana", 0, 20));
 
 			jlabel.setForeground(w);
@@ -161,24 +147,7 @@ public class tankPannel extends JPanel {
 				m = m - 16;
 			}
 		}
-<<<<<<< HEAD
-	 else{
-	 for(int i=0;i<(p1.getscore()/16);i++){
-	 g.drawImage(sheet.getTankGreenRight(),m+l , 448, null);
-	
-	 m=m-16;
-	 }
-	 for(int i=0;i<(p2.getscore()/16);i++){
-		
-		 g.drawImage(sheet.getTankRedRight(), q+l, 432, null);
-		 q=q-16;
-		 }
-	 
-	 }
- }
-=======
 	}
->>>>>>> origin/master
 
 //	private void drawscore(Graphics g) {
 	// Location p1s=new Location(bottomright, bottomright);

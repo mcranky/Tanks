@@ -19,20 +19,12 @@ public class Bullet3 {
 	private Image Bullet;
 	private Graphics g;
 	private Spritesheet sheet = new Spritesheet();
-<<<<<<< HEAD
-	private  tank enemy1;
-	
-	public Bullet3(int dir, Location y,Grid<blocks> gr,Graphics g,tank p1) {
-		this.dir=dir;
-		x=y;
-=======
 	private tank enemy1;
 	private boolean shooting = true;
 
 	public Bullet3(int dir, Location y, Grid<blocks> gr, Graphics g, tank p1) {
 		this.dir = dir;
 		x = y;
->>>>>>> origin/master
 		grid = gr;
 		this.g = g;
 		enemy1 = p1;

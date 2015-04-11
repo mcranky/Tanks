@@ -24,7 +24,8 @@ public class Spritesheet {
 
 	public Spritesheet() {
 		try {
-			mainImg = ImageIO.read(new File("Tank SpreadSheet.jpg"));
+			//mainImg = ImageIO.read(new File("tanks/tanks/Tank SpreadSheet.jpg"));
+			mainImg = ImageIO.read(Spritesheet.class.getResourceAsStream("/Tank SpreadSheet.jpg"));
 		} catch (Exception e) {
 			System.out.println(" You suck trey");
 		}
